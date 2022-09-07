@@ -64,6 +64,7 @@ class RSSI_Scan(object):
         (raw_output, raw_error) = scan_process.communicate() 
         # Block all execution, until the scanning completes.
         scan_process.wait()
+        raw_output = raw_output.decode('utf-8')
         # Returns all output in a dictionary for easy retrieval.
         return {'output':raw_output,'error':raw_error}
 
